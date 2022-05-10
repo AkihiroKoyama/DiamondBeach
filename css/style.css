@@ -24,6 +24,7 @@ li {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 a:visited {
@@ -42,6 +43,7 @@ h3 {
 .container {
   border: 1px solid red;
   width: calc(100% - 120px);
+  max-width: 1100px;
   margin: 0 auto;
   text-align: center;
 }
@@ -83,6 +85,10 @@ header .topRogoSP {
   width: 300px;
 }
 
+header .menu-btn.is-active {
+  display: none;
+}
+
 header .menu-btn .h-line {
   /* border: 1px solid red; */
   position: relative;
@@ -111,15 +117,42 @@ header .menu-btn .h-line div:nth-of-type(3) {
 }
 
 header .menu {
-  width: 320px;
-  height: 400px;
-  background-color: rgba(51, 51, 51, .4);
+  position: fixed;
+  top: 40px;
+  right: -200px;
+  width: 200px;
+  height: 300px;
+  background-color: rgba(51, 51, 51, .6);
+  z-index: 90;
+}
+
+header .menu.is-active {
+  transform: translateX(-240px);
+}
+
+header .menu .close-btn {
+  padding: 8px 8px 0 0;
+  width: 28px;
   margin-left: auto;
-  padding-top: 60px;
 }
 
 header .menu ul {
   color: #fff;
+  /* padding-top: 32px; */
+  width: 160px;
+  margin: 0 auto;
+}
+
+header .menu li {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  height: 56px;
+  justify-content: center;
+}
+
+header .menu li+li {
+  border-top: 3px solid #fff;
 }
 
 /* main features */
@@ -139,22 +172,27 @@ header .menu ul {
   z-index: -10;
 }
 
-#main #features .seaWater,
-#main #features .sunset1 {
+#main #features .seaWaterSP,
+#main #features .sunset1SP {
   box-shadow: var(--box-shadow);
 }
 
-#main #features h3 {
-  position: relative;
-  font-size: 1.6rem;
-  line-height: 40px;
+#main #features .seaWaterPC,
+#main #features .sunset1PC {
+  display: none;
 }
 
 #main #features p {
   text-align: left;
   font-size: 1.1rem;
-  line-height: 36px;
+  line-height: 30px;
   padding: 24px 0 60px;
+}
+
+#main #features h3 {
+  position: relative;
+  font-size: 1.6rem;
+  line-height: 32px;
 }
 
 #main #features h3::after {
@@ -167,7 +205,7 @@ header .menu ul {
   bottom: -24px;
 }
 
-#main #features h3::after {
+#main #features .sunset h3::after {
   background: #E3A700;
 }
 
@@ -179,7 +217,7 @@ header .menu ul {
 
 #main #events ul {
   display: flex;
-  justify-content: space-between;
+  justify-content:left;
   flex-wrap: wrap;
 }
 
@@ -187,6 +225,10 @@ header .menu ul {
   width: calc(50% - 16px);
   box-shadow: var(--box-shadow);
   margin-bottom: 40px;
+}
+
+#main #events li:nth-of-type(even) {
+  margin-left: 32px;
 }
 
 #main #events li img {
@@ -228,8 +270,12 @@ header .menu ul {
   z-index: -10;
 }
 
+#main #access .adressSide {
+  display: none;
+}
+
 #main #access h3 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   position: relative;
 }
 
@@ -248,7 +294,7 @@ header .menu ul {
   width: 288px;
   height: 149px;
   margin: 0 auto;
-  padding-top: 16px;
+  padding-top: 12px;
   text-align: left;
   font-size: 0.9rem;
   line-height: 28px;
@@ -284,5 +330,189 @@ header .menu ul {
 }
 
 @media (min-width: 1024px) {
+  /* header */
+
+  header {
+    height: 800px;
+    background-image: url(../img/beach1_HERO.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: right top;
+  }
+
+  header .topRogoPC {
+    display: block;
+    width: 700px;
+    margin: 0 auto;
+  }
+  
+  header .topRogoSP {
+    display: none;
+  }
+
+  header .menu-btn {
+    display: none;
+  }
+
+  header .menu h1 {
+    position: relative;
+  }
+
+  header .menu {
+    position: absolute;
+    top: 220px;
+    right: -180px;
+    width: 200px;
+    height: 300px;
+    background-color: transparent;
+    z-index: 90;
+  }
+
+  header .menu .close-btn {
+    display: none;
+  }
+  
+  header .menu ul {
+    color: #222;
+    width: 160px;
+    margin: 0 auto;
+  }
+  
+  header .menu li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    height: 56px;
+    justify-content: right;
+  }
+
+  header .menu li::after {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 4px;
+    right: -16px;
+    background: #222;
+    opacity: 0;
+  }
+
+  header .menu li:hover {
+    text-shadow: 0 0 8px #333;
+    transition: all 500ms ease;
+  }
+
+  header .menu li:hover::after {
+    opacity: 1;
+    transform: translateX(-4px);
+    transition: all 500ms ease;
+  }
+  
+  header .menu li+li {
+    border-top: inherit;
+  }
+
+  /* main */
+
+  #main #features .seaWaterSP,
+  #main #features .sunset1SP {
+    display: none;
+  }
+
+  #main #features .water {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #main #features .seaWaterPC {
+    display: block;
+    width: 60%;
+    padding: 20px 0 0 72px;
+  }
+
+  #main #features .water .explain {
+    width: 40%;
+  }
+
+  #main #features .water p {
+    width: 45vw;
+    margin: 0 calc(60% - 40.5vw);
+    text-align: right;
+    padding: 18px 0px 60px 12px;
+  }
+
+  #main #features .sunset {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  #main #features .sunset1PC {
+    display: block;
+    width: 60%;
+    padding: 20px 72px 0 0;
+  }
+  
+  #main #features .sunset h3::after {
+    left: inherit;
+    right: 0;
+    bottom: -24px;
+  }
+
+  #main #features .sunset .explain {
+    width: 40%;
+  }
+
+  #main #features .sunset p {
+    width: 45vw;
+    padding: 22px 0 60px 100px;
+    margin: 0 auto;
+  }
+
+  #main #features .sunset p {
+  }
+  
+  #main #features h3 {
+    position: relative;
+    font-size: 1.6rem;
+    line-height: 32px;
+  }
+
+  /* main events */
+
+  #main #events li {
+    width: calc(25% - 24px);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 40px;
+  }
+  
+  #main #events li:nth-of-type(even) {
+    margin-left: inherit;
+  }
+
+  #main #events li {
+    margin-right: 32px;
+  }
+
+  #main #events li:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  #main #access .adressBG {
+    display: none;
+  }
+
+  #main #access .adressSide {
+    display: block;
+  }
+
+  #main #access .accessBox {
+    display: flex;
+  }
+
+  /* footer */
+
 
 }

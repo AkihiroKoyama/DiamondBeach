@@ -1,0 +1,288 @@
+/* common */
+
+:root {
+  --box-shadow: 2px 2px 4px #555;
+}
+
+body {
+  margin: 0;
+  font-family: "Bodoni 72", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+  font-size: 10px;
+}
+
+h1,
+h2,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+.container {
+  border: 1px solid red;
+  width: calc(100% - 120px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 36px;
+  right: 36px;
+  width: 56px;
+  height: 52px;
+  border-radius: 8px;
+  background-color: rgba(51, 51, 51, .3);
+  transform: rotate(45);
+  z-index: 100;
+}
+
+.patitionImg {
+  width: 100%;
+}
+/* header */
+
+header {
+  height: 800px;
+  background-image: url(../img/beach1_HERO.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 45% top;
+}
+
+header h1 {
+  padding-top: 248px;
+}
+
+header .topRogoPC {
+  display: none;
+}
+
+header .topRogoSP {
+  width: 300px;
+}
+
+header .menu-btn .h-line {
+  /* border: 1px solid red; */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+header .menu-btn .h-line div {
+  position: absolute;
+  left: 10px;
+  height: 3px;
+  width: 36px;
+  border-radius: 1px;
+  background-color: #fff;
+}
+
+header .menu-btn .h-line div:nth-of-type(1) {
+  bottom: 34px;
+}
+header .menu-btn .h-line div:nth-of-type(2) {
+  bottom: 24px;
+}
+header .menu-btn .h-line div:nth-of-type(3) {
+  bottom: 14px;
+}
+
+header .menu {
+  width: 320px;
+  height: 400px;
+  background-color: rgba(51, 51, 51, .4);
+  margin-left: auto;
+  padding-top: 60px;
+}
+
+header .menu ul {
+  color: #fff;
+}
+
+/* main features */
+
+#main .container {
+  position: relative;
+}
+
+#main h2 {
+  padding: 76px 0 50px;
+}
+
+#main .diamondImage {
+  position: absolute;
+  left: calc(50% - 24px);
+  top: 76px;
+  z-index: -10;
+}
+
+#main #features .seaWater,
+#main #features .sunset1 {
+  box-shadow: var(--box-shadow);
+}
+
+#main #features h3 {
+  position: relative;
+  font-size: 1.6rem;
+  line-height: 40px;
+}
+
+#main #features p {
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 36px;
+  padding: 24px 0 60px;
+}
+
+#main #features h3::after {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 80px;
+  background: #00D0D0;
+  left: 0;
+  bottom: -24px;
+}
+
+#main #features h3::after {
+  background: #E3A700;
+}
+
+/* main events */
+
+#main .container {
+  padding-bottom: 40px;
+}
+
+#main #events ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#main #events li {
+  width: calc(50% - 16px);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 40px;
+}
+
+#main #events li img {
+  width: 100%;
+}
+
+#main #events .eventTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 48px;
+  line-height: 13px;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+}
+
+#main #events .eventDate {
+  padding-bottom: 4px;
+}
+
+/* main access */
+
+#main #access h2 {
+  padding-bottom: 32px;
+}
+
+#main #access .container {
+  position: relative;
+}
+
+#main #access .adressBG {
+  height: 260px;
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  opacity: .2;
+  position: absolute;
+  top: 152px;
+  z-index: -10;
+}
+
+#main #access h3 {
+  font-size: 1.7rem;
+  position: relative;
+}
+
+#main #access h3::after {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 80px;
+  background: #00D0D0;
+  left: calc(50% - 40px);
+  bottom: -20px;
+}
+
+#main #access .adress {
+  /* border: 1px solid blue; */
+  width: 288px;
+  height: 149px;
+  margin: 0 auto;
+  padding-top: 16px;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 28px;
+}
+
+#main #access iframe {
+  padding-top: 52px;
+}
+
+/* footer */
+
+#footer {
+  height: 260px;
+  background-image: url(../img/beach1ForFooter.jpg);
+  background-size: cover;
+}
+
+#footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  justify-content: space-between;
+  padding-top: 72px;
+}
+
+#footer img {
+  width: 200px; 
+  margin: 0 auto;
+}
+
+#footer small {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 1024px) {
+
+}

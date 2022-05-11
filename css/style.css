@@ -41,28 +41,25 @@ h3 {
 }
 
 .container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: calc(100% - 120px);
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
 }
 
-.menu-btn {
-  position: fixed;
-  top: 36px;
-  right: 36px;
-  width: 56px;
-  height: 52px;
-  border-radius: 8px;
-  background-color: rgba(51, 51, 51, .3);
-  transform: rotate(45);
-  z-index: 100;
-}
-
 .patitionImg {
   width: 100%;
 }
+
+.topRogoPC {
+  display: none;
+}
+
+.topRogoSP {
+  width: 300px;
+}
+
 /* header */
 
 header {
@@ -70,31 +67,28 @@ header {
   background-image: url(../img/beach1_HERO.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 45% top;
+  background-position:center top;
 }
 
 header h1 {
   padding-top: 248px;
 }
 
-header .topRogoPC {
-  display: none;
-}
-
-header .topRogoSP {
-  width: 300px;
+header .menu-btn {
+  position: fixed;
+  border-width: 0;
+  cursor: pointer;
+  top: 36px;
+  right: 36px;
+  width: 56px;
+  height: 52px;
+  border-radius: 8px;
+  background-color: rgba(51, 51, 51, .5);
+  z-index: 100;
 }
 
 header .menu-btn.is-active {
   display: none;
-}
-
-header .menu-btn .h-line {
-  /* border: 1px solid red; */
-  position: relative;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
 }
 
 header .menu-btn .h-line div {
@@ -124,21 +118,25 @@ header .menu {
   height: 300px;
   background-color: rgba(51, 51, 51, .6);
   z-index: 90;
+  transform: translateX(240);
+  transition: all 200ms ease;
 }
 
 header .menu.is-active {
   transform: translateX(-240px);
+  transition: all 200ms ease;
 }
 
 header .menu .close-btn {
-  padding: 8px 8px 0 0;
-  width: 28px;
+  display: block;
   margin-left: auto;
+  background-color: transparent;
+  border-width: 0;
+  padding: 8px 8px 0 0;
 }
 
 header .menu ul {
   color: #fff;
-  /* padding-top: 32px; */
   width: 160px;
   margin: 0 auto;
 }
@@ -170,11 +168,6 @@ header .menu li+li {
   left: calc(50% - 24px);
   top: 76px;
   z-index: -10;
-}
-
-#main #features .seaWaterSP,
-#main #features .sunset1SP {
-  box-shadow: var(--box-shadow);
 }
 
 #main #features .seaWaterPC,
@@ -286,18 +279,29 @@ header .menu li+li {
   width: 80px;
   background: #00D0D0;
   left: calc(50% - 40px);
-  bottom: -20px;
+  bottom: -15px;
 }
 
 #main #access .adress {
-  /* border: 1px solid blue; */
   width: 288px;
-  height: 149px;
+  height: 240px;
   margin: 0 auto;
   padding-top: 12px;
-  text-align: left;
   font-size: 0.9rem;
   line-height: 28px;
+}
+
+#main #access .adress p {
+  text-align: left;
+}
+
+#main #access .sns-links {
+  margin-top: 4px;
+  font-size: 1.4rem;
+}
+
+#main #access .sns-links a+a {
+  margin-left: 8px;
 }
 
 #main #access iframe {
@@ -330,6 +334,18 @@ header .menu li+li {
 }
 
 @media (min-width: 1024px) {
+
+  /* common */
+
+  .topRogoSP {
+    display: none;
+  }
+
+  .topRogoPC {
+    display: block;
+
+  }
+
   /* header */
 
   header {
@@ -340,15 +356,17 @@ header .menu li+li {
     background-position: right top;
   }
 
+  header h1 {
+    padding-top: 292px;
+  }
+
   header .topRogoPC {
     display: block;
     width: 700px;
     margin: 0 auto;
+    padding-right: 100px;
   }
   
-  header .topRogoSP {
-    display: none;
-  }
 
   header .menu-btn {
     display: none;
@@ -360,8 +378,8 @@ header .menu li+li {
 
   header .menu {
     position: absolute;
-    top: 220px;
-    right: -180px;
+    top: 270px;
+    right: 0px;
     width: 200px;
     height: 300px;
     background-color: transparent;
@@ -383,8 +401,11 @@ header .menu li+li {
     display: flex;
     align-items: center;
     font-size: 1.6rem;
-    height: 56px;
+    height: 40px;
+    margin-bottom: 16px;
+    padding: 0 12px;
     justify-content: right;
+    background: linear-gradient(to right,transparent,white);
   }
 
   header .menu li::after {
@@ -470,9 +491,6 @@ header .menu li+li {
     padding: 22px 0 60px 100px;
     margin: 0 auto;
   }
-
-  #main #features .sunset p {
-  }
   
   #main #features h3 {
     position: relative;
@@ -504,15 +522,59 @@ header .menu li+li {
     display: none;
   }
 
-  #main #access .adressSide {
-    display: block;
-  }
-
   #main #access .accessBox {
     display: flex;
+    flex-direction: row-reverse;
+    padding-top: 32px 0 0;
+  }
+
+  #main #access .adressSide {
+    display:block;
+    width: 60%;
+    padding: 20px 0 0 72px;
+  }
+
+  #main #access .adress {
+    width: 40%;
+    height: 380px;
+  }
+  
+  #main #access h3 {
+    font-size: 2.2rem;
+    padding-right: 52px;
+  }
+
+  #main #access h3::after {
+    left: 0;
+    bottom: -44px;
+  }
+
+  #main #access .adress p {
+    position: relative;
+    width: 45vw;
+    margin: 0 calc(60% - 40vw);
+    text-align: right;
+    font-size: 1.3rem;
+    line-height: 42px;
+    padding: 54px 0 0 0;
+  }
+
+  #main #access .sns-links {
+    position: absolute;
+    margin-top: 0;
+    font-size: 2em;
+    right: 387px;
+    top: 483px;
+  }
+
+  #main #access .sns-links a+a {
+    margin-left: 4px;
   }
 
   /* footer */
 
+  #footer img {
+    width: 480px;
+  }
 
 }

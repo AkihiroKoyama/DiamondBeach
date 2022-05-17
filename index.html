@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="css/style.css">
+  <!-- <script src="js/script.js"></script> -->
   <title>Diamond Beach</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
       <div class="h-line">
         <div></div>
         <div></div>
-        <div></div>
+        <div></div> 
       </div>
     </button>
     <div class="container">
@@ -45,8 +46,9 @@
       </h1>
     </div>
   </header>
+
   <main id="main">
-    <section id="features">
+    <section id="features" class="ef">
       <div class="container">
         <h2>FEATURES</h2>
         <img src="img/diamond_lightGlay.png" alt="ダイアモンドのロゴ" class="diamondImage"
@@ -101,7 +103,7 @@
     <img src="img/beach2.jpg" alt="区切りのビーチ画像1"
     class="patitionImg">
 
-    <section id="events">
+    <section id="events" class="ef">
       <div class="container">
         <h2>EVENTS</h2>
         <img src="img/diamond_lightGlay.png" alt="ダイアモンドのロゴ" class="diamondImage"
@@ -170,7 +172,7 @@
     <img src="img/beach3.jpg" alt="区切りのビーチ画像2"
     class="patitionImg">
 
-    <section id="access">
+    <section id="access" class="ef">
       <div class="container">
         <h2>ACCESS</h2>
         <img src="img/diamond_lightGlay.png" alt="ダイアモンドのロゴ" class="diamondImage"
@@ -188,7 +190,7 @@
                 <i class="bi bi-instagram"></i>
               </a>
               <a href="#">
-                <i class="bi bi-twitter"></i>
+                <i class="bi bi-github"></i>
               </a>
             </div>
           </div>
@@ -215,7 +217,6 @@
       <small>©︎AkihiroKoyama</small>
     </div>
   </footer>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     $('.menu-btn').click(function()
@@ -224,6 +225,20 @@
     $('.close-btn').click(function()
     {$('.menu,.menu-btn').toggleClass('is-active');
     });
+    
+    $(function(){
+    $(".ef").css({opacity:"0"});
+    $(window).scroll(function (){
+      $(".ef").each(function(){
+        var ePos = $(this).offset().top;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll > ePos - windowHeight + windowHeight/5){
+          $(this).animate({ opacity: 1 }, { duration: 1000, easing: 'swing'})
+        }
+      });
+    });
+  });
   </script>
 </body>
 </html>
